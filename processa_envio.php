@@ -24,6 +24,8 @@
         print_r($mensagem);
     echo "</pre>";
     */
+    
+
 
    if(!$mensagem->mensagemValida()){
        echo "Mensagem é invalida";
@@ -45,7 +47,7 @@
 
         //Recipients
         $mail->setFrom('', '');
-        $mail->addAddress('', '');     // Add a recipient
+        $mail->addAddress($mensagem->__get('para'));     // Add a recipient
         //$mail->addAddress('ellen@example.com');               // Name is optional
         //$mail->addReplyTo('info@example.com', 'Information');
         //$mail->addCC('cc@example.com');
@@ -57,15 +59,15 @@
 
         //Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Oi, teste';
-        $mail->Body    = 'Oi';
-        $mail->AltBody = 'Oi';
+        $mail->Subject = $mensagem->__get('assunto');
+        $mail->Body    = $mensagem->__get('mensagem');
+        $mail->AltBody = 'É necessário utilizar um client que suporte HTML para ter acesso total ao conteúdo dessa mensagem';
 
         $mail->send();
-        echo 'Message has been sent';
+        echo 'E-mail enviado com sucesso';
     } catch (Exception $e) {
         echo 'Não foi possível enviar este e-mail! Por favor tente novamente mais tarde';
         echo 'Detalhes do erro: ' . $mail->ErrorInfo;
     }
-
+    
 ?>
