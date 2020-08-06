@@ -3,6 +3,7 @@
         private $para = null;
         private $assunto = null;
         private $mensagem = null;
+        public $status = array('codigo_status' => null, 'descricao_status' => '');
 
         public function __get($atributo){
             return $this->$atributo;
