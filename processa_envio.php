@@ -1,25 +1,22 @@
 <?php
-    echo "<pre>";
-    
+    require_once "Mensagem.php";
+
+    $mensagem = new Mensagem();
+
+    $mensagem->__set('para', $_POST['para']);
+    $mensagem->__set('assunto', $_POST['assunto']);
+    $mensagem->__set('mensagem', $_POST['mensagem']);
+
     /*
-    print_r($_GET);
-    echo "<br>";
-    echo $_GET['email'];
-    echo "<br>";
-    echo $_GET['assunto'];
-    echo "<br>";
-    echo $_GET['mensagem'];
+    echo "<pre>";
+        print_r($mensagem);
+    echo "</pre>";
     */
 
-    print_r($_POST);
-    echo "<br>";
-    echo $_POST['para'];
-    echo "<br>";
-    echo $_POST['assunto'];
-    echo "<br>";
-    echo $_POST['mensagem'];
-    
-
-
-    echo "</pre>";
+   if($mensagem->mensagemValida()){
+       echo "Valida";
+   }else{
+       echo "invalida";
+   }
+   
 ?>
