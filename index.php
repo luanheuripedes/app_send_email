@@ -21,10 +21,10 @@
       			<div class="col-md-12">
   				
 					<div class="card-body font-weight-bold">
-						<form action="processa_envio.php"> 
+						<form action="processa_envio.php" method = "post"> 
 							<div class="form-group">
 								<label for="para">Para</label>
-								<input name = "email" type="text" class="form-control" id="para" placeholder="seu-email@dominio.com.br">
+								<input name = "para" type="text" class="form-control" id="para" placeholder="seu-email@dominio.com.br">
 							</div>
 
 							<div class="form-group">
